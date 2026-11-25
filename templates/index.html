@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI DevOps Incident Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <h2>⚡ DevOps AI</h2>
+
+            <nav>
+                <a href="#" class="active">🏠 Dashboard</a>
+                <a href="#analyzer">🔍 Incident Analyzer</a>
+                <a href="#history">📋 Incident History</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                AI-Powered DevOps Assistant
+                <small>Version 1.0</small>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h1>Incident Dashboard</h1>
+                    <p>Monitor, analyze and troubleshoot DevOps incidents.</p>
+                </div>
+                <span class="status">● System Ready</span>
+            </header>
+
+            <section class="welcome">
+                <h2>Welcome to AI DevOps Assistant 👋</h2>
+                <p>Identify technical errors and get intelligent troubleshooting recommendations.</p>
+            </section>
+
+            <section class="stats">
+                <div class="stat-card">
+                    <h3>Total Incidents</h3>
+                    <h2 id="totalIncidents">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Critical Issues</h3>
+                    <h2 id="criticalIncidents">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Analyzed Today</h3>
+                    <h2 id="todayIncidents">0</h2>
+                </div>
+            </section>
+
+            <section class="analyzer" id="analyzer">
+
+                <h2>🔍 AI Incident Analyzer</h2>
+                <p>Paste your DevOps error log below for intelligent analysis.</p>
+
+                <form id="analyzeForm">
+
+                    <label for="errorLog">Enter Error Log</label>
+
+                    <textarea
+                        id="errorLog"
+                        placeholder="Example: Kubernetes Pod showing CrashLoopBackOff..."
+                        required
+                    ></textarea>
+
+                    <label for="environment">Select Environment</label>
+
+                    <select id="environment">
+                        <option value="Kubernetes">Kubernetes</option>
+                        <option value="Docker">Docker</option>
+                        <option value="AWS">AWS</option>
+                        <option value="Linux">Linux</option>
+                        <option value="Networking">Networking</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <button type="submit" id="analyzeBtn">
+                        ✨ Analyze Incident
+                    </button>
+
+                </form>
+
+                <div id="loading" class="hidden">
+                    Analyzing incident... Please wait.
+                </div>
+
+                <div id="result" class="result hidden">
+                    <h2>Analysis Result</h2>
+                    <div id="analysisContent"></div>
+                </div>
+
+            </section>
+
+            <section class="history" id="history">
+                <h2>📋 Recent Incident History</h2>
+                <div id="historyList">
+                    <p>No incidents analyzed yet.</p>
+                </div>
+            </section>
+
+            <footer>
+                AI DevOps Incident Assistant | Built with Python, Flask and Gemini AI
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
